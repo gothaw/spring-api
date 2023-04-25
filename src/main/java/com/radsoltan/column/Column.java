@@ -1,22 +1,18 @@
 package com.radsoltan.column;
 
+import com.radsoltan.core.BaseEntity;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Column {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private final Long id;
+public class Column extends BaseEntity {
     public String label;
     public int width;
     public int breadth;
 
     // TODO: 25/04/2023 Duplicating code for every single entity
     protected Column() {
-        this.id = null;
+        super();
     }
 
     public String getLabel() {

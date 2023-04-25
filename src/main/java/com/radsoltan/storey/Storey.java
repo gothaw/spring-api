@@ -1,36 +1,32 @@
 package com.radsoltan.storey;
 
+import com.radsoltan.core.BaseEntity;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
-public class Storey {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private final Long id;
-    private String description;
+public class Storey extends BaseEntity {
+    private String label;
     private int height;
     private double area;
 
     protected Storey() {
-        this.id = null;
+        super();
     }
 
     public Storey(String description, int height, double area) {
         this();
-        this.description = description;
+        this.label = description;
         this.height = height;
         this.area = area;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLabel() {
+        return label;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public int getHeight() {
