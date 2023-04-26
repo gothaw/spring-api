@@ -1,17 +1,25 @@
 package com.radsoltan.storey;
 
+import com.radsoltan.column.Column;
 import com.radsoltan.core.BaseEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Storey extends BaseEntity {
     private String label;
     private int height;
     private double area;
+    @OneToMany(mappedBy = "storey", cascade = CascadeType.ALL)
+    private List<Column> columns;
 
     protected Storey() {
         super();
+        columns = new ArrayList<>();
     }
 
     public Storey(String description, int height, double area) {
@@ -19,6 +27,15 @@ public class Storey extends BaseEntity {
         this.label = description;
         this.height = height;
         this.area = area;
+    }
+
+    public List<Column> getColumns() {
+        return columns;
+    }
+
+    public void addColumn(Column column) {
+        column.setStorey(this);
+        columns.add(column);
     }
 
     public String getLabel() {

@@ -1,18 +1,30 @@
 package com.radsoltan.column;
 
 import com.radsoltan.core.BaseEntity;
+import com.radsoltan.storey.Storey;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Column extends BaseEntity {
-    public String label;
-    public int width;
-    public int breadth;
+    private String label;
+    private int width;
+    private int breadth;
+    private double force;
+    @ManyToOne
+    private Storey storey;
 
     // TODO: 25/04/2023 Duplicating code for every single entity
     protected Column() {
         super();
+    }
+
+    public Column(String label, int width, int breadth, double force) {
+        this.label = label;
+        this.width = width;
+        this.breadth = breadth;
+        this.force = force;
     }
 
     public String getLabel() {
@@ -37,5 +49,21 @@ public class Column extends BaseEntity {
 
     public void setBreadth(int breadth) {
         this.breadth = breadth;
+    }
+
+    public double getForce() {
+        return force;
+    }
+
+    public void setForce(double force) {
+        this.force = force;
+    }
+
+    public Storey getStorey() {
+        return storey;
+    }
+
+    public void setStorey(Storey storey) {
+        this.storey = storey;
     }
 }
