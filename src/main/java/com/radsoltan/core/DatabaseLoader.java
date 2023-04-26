@@ -28,11 +28,11 @@ public class DatabaseLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         String[] templates = {"First %s", "Second %s", "Third %s", "Fourth %s", "Fifth %s"};
-        String[] locations = {"floor utility complex", "floor office building"};
+        String[] locations = {"floor utility complex", "floor office building", "floor hall"};
         String[] horizontalGrid = {"A", "B", "C", "D", "E"};
         String[] verticalGrid = {"1", "2", "3", "4", "5"};
         List<Storey> storeyList = new ArrayList<>();
-        IntStream.range(0, 10)
+        IntStream.range(0, 40)
                 .forEach(i -> {
                     String template = templates[i % templates.length];
                     String location = locations[i % locations.length];
