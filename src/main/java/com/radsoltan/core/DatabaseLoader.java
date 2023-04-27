@@ -43,7 +43,7 @@ public class DatabaseLoader implements ApplicationRunner {
                     IntStream.range(0, 10)
                                     .forEach(j -> {
                                         String label = horizontalGrid[getRandomNumber(0, horizontalGrid.length)] + verticalGrid[getRandomNumber(0, verticalGrid.length)];
-                                        Column c = new Column(label, getRandomNumber(5,15) * 50, getRandomNumber(5,15) * 50, 4000);
+                                        Column c = new Column(label, getRandomNumber(5,15) * 50, getRandomNumber(5,15) * 50, 1000);
                                         s.addColumn(c);
                                     });
                     storeyList.add(s);
