@@ -5,12 +5,19 @@ import com.radsoltan.storey.Storey;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Column extends BaseEntity {
+    @NotNull
+    @Size(min = 2, max = 140)
     private String label;
+    @NotNull
     private int width;
+    @NotNull
     private int breadth;
+    @NotNull
     private double force;
     @ManyToOne
     private Storey storey;

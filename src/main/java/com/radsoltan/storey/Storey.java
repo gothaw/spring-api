@@ -6,12 +6,17 @@ import com.radsoltan.core.BaseEntity;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Storey extends BaseEntity {
+    @NotNull
+    @Size(min = 2, max = 140)
     private String label;
+    @NotNull
     private int height;
     private double area;
     @OneToMany(mappedBy = "storey", cascade = CascadeType.ALL)
