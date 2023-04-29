@@ -2,9 +2,11 @@ package com.radsoltan.column;
 
 import com.radsoltan.core.BaseEntity;
 import com.radsoltan.storey.Storey;
+import com.radsoltan.user.User;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -21,6 +23,8 @@ public class Column extends BaseEntity {
     private double force;
     @ManyToOne
     private Storey storey;
+    @ManyToOne
+    private User user;
 
     // TODO: 25/04/2023 Duplicating code for every single entity
     protected Column() {
@@ -72,5 +76,13 @@ public class Column extends BaseEntity {
 
     public void setStorey(Storey storey) {
         this.storey = storey;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
