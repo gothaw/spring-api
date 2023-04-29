@@ -53,11 +53,11 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUserName(String userName) {
+    public void setUsername(String userName) {
         this.username = username;
     }
 
